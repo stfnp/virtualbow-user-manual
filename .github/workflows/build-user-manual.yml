@@ -9,10 +9,10 @@ jobs:
         with:
           ruby-version: 2.6
       - run: gem install asciidoctor
-      - run: asciidoctor source/book.adoc --destination-dir . --backend html5
+      - run: asciidoctor source/book.adoc --backend html5
       - uses: actions/upload-artifact@v2
         with:
           name: build-output-html
           path: |
-            book.html
-            images
+            source/book.html
+            source/images
