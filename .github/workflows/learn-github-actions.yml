@@ -9,3 +9,5 @@ jobs:
         with:
           ruby-version: 2.6
       - run: gem install asciidoctor
+      - run: asciidoctor ./source/book.adoc --destination-dir . --backend html5
+      - run: asciidoctor ./source/book.adoc --destination-dir . --backend pdf
