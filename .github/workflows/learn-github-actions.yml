@@ -8,6 +8,6 @@ jobs:
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.6
-      - run: gem install asciidoctor
+      - run: gem install asciidoctor asciidoctor-pdf
       - run: asciidoctor ./source/book.adoc --destination-dir . --backend html5
-      - run: asciidoctor ./source/book.adoc --destination-dir . --backend pdf
+      - run: asciidoctor ./source/book.adoc --require asciidoctor-pdf --destination-dir . --backend pdf
