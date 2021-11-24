@@ -17,7 +17,7 @@ jobs:
             source/book.html
             source/images
   
-  build-user-manual-env1:
+  build-user-manual-env2:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
@@ -28,7 +28,7 @@ jobs:
       - run: asciidoctor source/book.adoc --backend html5
       - uses: actions/upload-artifact@v2
         with:
-          name: build-output-env1
+          name: build-output-env2
           path: |
             source/book.html
             source/images
