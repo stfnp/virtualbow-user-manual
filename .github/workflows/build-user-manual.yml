@@ -1,7 +1,7 @@
 name: build-user-manual
 on: [push]
 jobs:
-  check-bats-version:
+  build-user-manual-env1:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
@@ -9,12 +9,26 @@ jobs:
         with:
           ruby-version: 2.6
       - run: gem install asciidoctor
-      - name: Build
-        run: asciidoctor source/book.adoc --backend html5
-      - name: Upload
-        uses: actions/upload-artifact@v2
+      - run: asciidoctor source/book.adoc --backend html5
+      - uses: actions/upload-artifact@v2
         with:
-          name: build-output-html
+          name: build-output-env1
+          path: |
+            source/book.html
+            source/images
+  
+  build-user-manual-env1:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - run: gem install asciidoctor
+      - run: asciidoctor source/book.adoc --backend html5
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build-output-env1
           path: |
             source/book.html
             source/images
