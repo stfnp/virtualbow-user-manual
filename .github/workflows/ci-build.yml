@@ -1,4 +1,4 @@
-name: build-user-manual
+name: CI Build
 
 on:
   push:
@@ -43,18 +43,16 @@ jobs:
             source/book-env2.html
             source/images
 
-  # Creates a development release on pushes to the develop branch
+  # Create a development release on pushes to the develop branch
   develop-release:
     if: github.ref == 'refs/heads/develop'
     runs-on: ubuntu-18.04
     needs: [build-env1, build-env2]
     steps:
       - uses: actions/download-artifact@v2
-      - name: Display structure of downloaded files
-        run: ls -R
       - uses: softprops/action-gh-release@v1
         with:
-          body: This release is continuously updated with the latest development version. Using it is only recommended for testing.
+          body: This is a continuous release of the latest development version. Using it is only recommended for testing.
           tag_name: latest
           prerelease: true
           token: ${{ secrets.REPOSITORY_TOKEN }}
@@ -63,15 +61,13 @@ jobs:
             output-env1/book-env1.html
             output-env2/book-env2.html
 
-  # Creates a draft release when a version tag is pushed
+  # Create a draft release when a version tag is pushed
   tagged-release:
     if: startsWith(github.ref, 'refs/tags')
     runs-on: ubuntu-18.04
     needs: [build-env1, build-env2]
     steps:
       - uses: actions/download-artifact@v2
-      - name: Display structure of downloaded files
-        run: ls -R
       - uses: softprops/action-gh-release@v1
         with:
           body: TEMPORARY DESCRIPTION
