@@ -16,7 +16,7 @@ jobs:
           path: |
             source/book.html
             source/images
-  
+
   build-user-manual-env2:
     runs-on: ubuntu-20.04
     steps:
@@ -32,3 +32,13 @@ jobs:
           path: |
             source/book.html
             source/images
+
+  develop-release:
+    needs: [build-user-manual-env1, build-user-manual-env2]
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: build-output-env1
+        
+      - name: Display structure of downloaded files
+        run: ls -R
