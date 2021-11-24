@@ -34,6 +34,7 @@ jobs:
             source/images
 
   develop-release:
+    runs-on: ubuntu-18.04
     needs: [build-user-manual-env1, build-user-manual-env2]
     steps:
       - uses: actions/download-artifact@v2
