@@ -33,7 +33,8 @@ jobs:
             source/book-env2.html
             source/images
 
-  github-release:
+  develop-release:
+    if: github.ref == 'refs/heads/develop'
     runs-on: ubuntu-18.04
     needs: [build-env1, build-env2]
     steps:
@@ -42,7 +43,7 @@ jobs:
         run: ls -R
       - uses: softprops/action-gh-release@v1
         with:
-          body: This release is continuously updated with the latest development version and only recommended for testing.
+          body: This release is continuously updated with the latest development version. Using it is only recommended for testing.
           tag_name: latest
           prerelease: true
           token: ${{ secrets.REPOSITORY_TOKEN }}
