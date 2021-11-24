@@ -40,3 +40,9 @@ jobs:
       - uses: actions/download-artifact@v2
       - name: Display structure of downloaded files
         run: ls -R
+      - uses: softprops/action-gh-release@v1
+        with:
+          tag_name: latest
+          files: |
+            output-env1/book.html
+            output-env2/book.html
