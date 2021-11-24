@@ -3,10 +3,10 @@ name: build-user-manual
 on:
   push:
     branches:
-      -'*'
+      - '**'
     tags:
-      -'v[0-9]+.[0-9]+'
-      -'v[0-9]+.[0-9]+.[0-9]+'
+      - 'v[0-9]+.[0-9]+'
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   # Build and test for environment 1
