@@ -42,8 +42,11 @@ jobs:
         run: ls -R
       - uses: softprops/action-gh-release@v1
         with:
+          body: This release is continuously updated with the latest development version and only recommended for testing.
           tag_name: latest
+          prerelease: true
           token: ${{ secrets.REPOSITORY_TOKEN }}
+          fail_on_unmatched_files: true
           files: |
             output-env1/book-env1.html
             output-env2/book-env2.html
