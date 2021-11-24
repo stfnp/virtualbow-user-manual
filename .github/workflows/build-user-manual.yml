@@ -9,12 +9,12 @@ jobs:
         with:
           ruby-version: 2.6
       - run: gem install asciidoctor
-      - run: asciidoctor source/book.adoc --backend html5
+      - run: asciidoctor source/book.adoc -b html5 -o book-env1.html
       - uses: actions/upload-artifact@v2
         with:
           name: output-env1
           path: |
-            source/book.html
+            source/book-env1.html
             source/images
 
   build-env2:
@@ -25,12 +25,12 @@ jobs:
         with:
           ruby-version: 2.6
       - run: gem install asciidoctor
-      - run: asciidoctor source/book.adoc --backend html5
+      - run: asciidoctor source/book.adoc -b html5 -o book-env2.html
       - uses: actions/upload-artifact@v2
         with:
           name: output-env2
           path: |
-            source/book.html
+            source/book-env2.html
             source/images
 
   github-release:
@@ -43,7 +43,7 @@ jobs:
       - uses: softprops/action-gh-release@v1
         with:
           tag_name: latest
-          token: ${{ secrets.RELEASE_PERMISSION }}
+          token: ${{ secrets.REPOSITORY_TOKEN }}
           files: |
-            output-env1/book.html
-            output-env2/book.html
+            output-env1/book-env1.html
+            output-env2/book-env2.html
