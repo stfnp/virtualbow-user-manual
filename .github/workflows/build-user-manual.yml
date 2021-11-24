@@ -1,6 +1,15 @@
 name: build-user-manual
-on: [push]
+
+on:
+  push:
+    branches:
+      -'*'
+    tags:
+      -'v[0-9]+.[0-9]+'
+      -'v[0-9]+.[0-9]+.[0-9]+'
+
 jobs:
+  # Build and test for environment 1
   build-env1:
     runs-on: ubuntu-18.04
     steps:
@@ -17,6 +26,7 @@ jobs:
             source/book-env1.html
             source/images
 
+  # Build and test for environment 2
   build-env2:
     runs-on: ubuntu-20.04
     steps:
@@ -33,6 +43,7 @@ jobs:
             source/book-env2.html
             source/images
 
+  # Creates a development release on pushes to the develop branch
   develop-release:
     if: github.ref == 'refs/heads/develop'
     runs-on: ubuntu-18.04
@@ -46,6 +57,25 @@ jobs:
           body: This release is continuously updated with the latest development version. Using it is only recommended for testing.
           tag_name: latest
           prerelease: true
+          token: ${{ secrets.REPOSITORY_TOKEN }}
+          fail_on_unmatched_files: true
+          files: |
+            output-env1/book-env1.html
+            output-env2/book-env2.html
+
+  # Creates a draft release when a version tag is pushed
+  tagged-release:
+    if: startsWith(github.ref, 'refs/tags')
+    runs-on: ubuntu-18.04
+    needs: [build-env1, build-env2]
+    steps:
+      - uses: actions/download-artifact@v2
+      - name: Display structure of downloaded files
+        run: ls -R
+      - uses: softprops/action-gh-release@v1
+        with:
+          body: TEMPORARY DESCRIPTION
+          draft: true
           token: ${{ secrets.REPOSITORY_TOKEN }}
           fail_on_unmatched_files: true
           files: |
