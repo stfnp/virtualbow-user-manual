@@ -1,27 +1,16 @@
-# TODO
+# VirtualBow User Manual
 
-* Ruby Extensions
-    * Syntax highlighting für HTML und PDF:
-        https://docs.asciidoctor.org/asciidoctor/latest/syntax-highlighting/
-        => Pygments (Build-time + Python, Matlab, Julia)
-        
-    * Multi-Page HTML Output
-        https://github.com/owenh000/asciidoctor-multipage
+The VirtualBow user manual is created with [Asciidoctor](https://asciidoctor.org/), a tool that reads files in AsciiDoc format and converts them into various output formats.
+Asciidoctor and the required extensions for generating [PDF](https://asciidoctor.org/docs/asciidoctor-pdf/) and [multi-page HTML](https://github.com/owenh000/asciidoctor-multipage) require [Ruby](https://www.ruby-lang.org/) and can be installed with
 
-    * Formeln in HTML und PDF
-        https://docs.asciidoctor.org/asciidoctor/latest/stem/mathematical/
-        => SVG Output wählen
+    gem install asciidoctor
+    gem install asciidoctor-pdf
+    gem install asciidoctor-multipage    
 
-## Style generell
+To generate the HTML output, run
 
-* Verbatim Text in Datei-Format-Tabellen
+    asciidoctor-multipage book.adoc -D build/
 
-## Style HTML
+To generate the PDF output, run
 
-* Captions (Bilder, Tabellen) größer?
-
-## Style PDF
-
-* Sans-Serif Schrift?
-* Textumbrüche in Tabellen-Headern
-* ClipPath Problem mit SVGs
+    asciidoctor-pdf book.adoc -D build/

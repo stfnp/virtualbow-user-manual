@@ -1,5 +1,5 @@
 = VirtualBow User Manual
-Version 0.8, Published {localdate}
+Version 0.9, Published {localdate}
 :homepage: https://www.virtualbow.org
 :doctype: book
 :lang: en
