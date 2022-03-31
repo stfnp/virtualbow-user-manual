@@ -1,17 +1,14 @@
 # TODO
 
 * Ruby Extensions
-    * Syntax highlighting für HTML und PDF:
-        https://docs.asciidoctor.org/asciidoctor/latest/syntax-highlighting/
-        => Pygments (Build-time + Python, Matlab, Julia)
-        
-    * Multi-Page HTML Output
-        https://github.com/owenh000/asciidoctor-multipage
-
     * Formeln in HTML und PDF
         https://docs.asciidoctor.org/asciidoctor/latest/stem/mathematical/
         => SVG Output wählen
 
+## Multipage-HTML
+
+* Wrong numeration of appendix chapters, see https://github.com/owenh000/asciidoctor-multipage/issues/33       
+        
 ## Style generell
 
 * Verbatim Text in Datei-Format-Tabellen
