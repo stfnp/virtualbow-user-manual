@@ -1,9 +1,6 @@
 # TODO
 
-* Ruby Extensions
-    * Formeln in HTML und PDF
-        https://docs.asciidoctor.org/asciidoctor/latest/stem/mathematical/
-        => SVG Output wählen
+* Check local verson on USB for content changes
 
 ## Multipage-HTML
 
@@ -15,7 +12,8 @@
 
 ## Style HTML
 
-* Captions (Bilder, Tabellen) größer?
+* Captions (Images, Tables) larger?
+* Table captions below table?
 
 ## Style PDF
 
