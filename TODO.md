@@ -1,22 +1,20 @@
 # TODO
 
-* Check local verson on USB for content changes
-
 ## Multipage-HTML
 
-* Wrong numeration of appendix chapters, see https://github.com/owenh000/asciidoctor-multipage/issues/33       
+* Wrong numeration of appendix chapters, see https://github.com/owenh000/asciidoctor-multipage/issues/33
         
-## Style generell
+## Styling
 
-* Verbatim Text in Datei-Format-Tabellen
+* Verbatim Text in File format tables
 
-## Style HTML
+## Styling HTML
 
 * Captions (Images, Tables) larger?
 * Table captions below table?
 
-## Style PDF
+## Styling PDF
 
-* Sans-Serif Schrift?
-* Textumbrüche in Tabellen-Headern
-* ClipPath Problem mit SVGs 
+* Sans-Serif font?
+* Unnecessary line breaks in table headers
+* ClipPath problem with SVGs 
